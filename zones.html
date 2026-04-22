@@ -530,6 +530,246 @@
     .main-grid { grid-template-columns: 1fr; }
     .config-panel { grid-template-columns: 1fr 1fr; }
   }
+
+  /* Pill row (reused from index.html for outside-zones panel) */
+  .counts-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .counts-head {
+    padding: 10px 14px;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .total-pill {
+    background: var(--accent);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 20px;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  .counts-body {
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .counts-ph {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+
+  .pill-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 0.25s ease forwards;
+  }
+
+  .pill-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .pill-name {
+    flex: 1;
+    font-size: 0.78rem;
+    color: var(--text);
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pill-bar-bg {
+    width: 55px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .pill-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .pill-count {
+    font-size: 0.9rem;
+    min-width: 22px;
+    text-align: right;
+    color: var(--text);
+  }
+
+  /* Customer selector */
+  .customer-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0 6px;
+  }
+
+  .customer-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .customer-select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 12px;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    min-width: 180px;
+  }
+
+  .customer-select:focus { border-color: var(--accent2); }
+
+  .btn-load-zones {
+    background: var(--accent2);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-load-zones:hover { opacity: 0.85; }
+  .btn-load-zones:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* Prescription card */
+  .rx-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .rx-head {
+    padding: 9px 14px;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rx-body {
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .rx-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+  }
+
+  .rx-slot {
+    font-weight: 500;
+    color: var(--text);
+    min-width: 80px;
+  }
+
+  .rx-pills {
+    color: var(--muted);
+    flex: 1;
+  }
+
+  /* Compliance result */
+  .compliance-wrap {
+    margin-top: 6px;
+  }
+
+  .compliance-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .compliance-head {
+    padding: 9px 14px;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compliance-body {
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 50px;
+  }
+
+  .compliance-result {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    animation: fadeUp 0.25s ease forwards;
+  }
+
+  .compliance-result.ok {
+    background: rgba(0,229,160,0.1);
+    border: 1px solid rgba(0,229,160,0.3);
+    color: var(--accent);
+  }
+
+  .compliance-result.err {
+    background: rgba(255,107,107,0.1);
+    border: 1px solid rgba(255,107,107,0.3);
+    color: var(--warn);
+  }
+
+  .compliance-ph {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
 </style>
 </head>
 <body>
@@ -591,6 +831,17 @@
         <div class="corner br"></div>
       </div>
 
+      <!-- Customer selector row -->
+      <div class="customer-row">
+        <span class="customer-label">Patient</span>
+        <select class="customer-select" id="customerSelect" onchange="onCustomerChange()">
+          <option value="">— Select patient —</option>
+          <option value="alex">Alex</option>
+        </select>
+        <button class="btn-load-zones" id="btnLoadZones" onclick="loadPatientZones()" disabled>Load Zones</button>
+        <button class="btn danger" id="btnClearZones" onclick="clearAllZones()" style="margin-left:auto;padding:7px 14px;font-size:0.78rem;">Clear All</button>
+      </div>
+
       <!-- Zone toolbar -->
       <div class="zone-toolbar">
         <button class="btn" id="btnCam" onclick="toggleCamera()">▶ Start Camera</button>
@@ -599,8 +850,6 @@
           <input type="text" class="zone-name-field" id="zoneNameInput" placeholder="Zone name…" maxlength="20">
           <button class="btn" id="btnAddZone" onclick="startZone()" disabled>+ Draw Zone</button>
         </div>
-
-        <button class="btn danger" id="btnClearZones" onclick="clearAllZones()" style="margin-left:auto">Clear All</button>
       </div>
 
       <div class="zone-toolbar" style="margin-top:4px;">
@@ -621,10 +870,40 @@
         <img id="detImg" alt="Detection result">
       </div>
 
-      <div class="panel-label" style="margin-top:4px;">Zones</div>
+      <!-- Prescription -->
+      <div class="rx-card" id="rxCard" style="display:none">
+        <div class="rx-head">
+          <span>Prescription</span>
+          <span id="rxPatientName" style="color:var(--accent2);font-weight:500"></span>
+        </div>
+        <div class="rx-body" id="rxBody"></div>
+      </div>
+
+      <!-- Compliance check -->
+      <div class="compliance-wrap" id="complianceWrap" style="display:none">
+        <div class="compliance-card">
+          <div class="compliance-head">Dose Verification</div>
+          <div class="compliance-body" id="complianceBody">
+            <span class="compliance-ph">Run analysis to verify doses</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-label" style="margin-top:8px;">Zones</div>
       <div class="zones-list" id="zonesList">
         <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.06em;padding:8px 0;">
-          Draw zones on the camera feed to count pills per area.
+          Select a patient and click Load Zones to begin.
+        </div>
+      </div>
+
+      <!-- Outside zones -->
+      <div class="counts-wrap" id="unzonedWrap" style="margin-top:8px;display:none">
+        <div class="counts-head">
+          <span>Outside Zones</span>
+          <span class="total-pill" id="unzonedBadge">0</span>
+        </div>
+        <div class="counts-body" id="unzonedBody">
+          <div class="counts-ph">No detections outside zones</div>
         </div>
       </div>
     </div>
@@ -654,11 +933,63 @@ const PILL_COLORS = [
   '#c77dff', '#118ab2'
 ];
 
+// ── Patient / Prescription Data ─────────────────────────────
+// Prescriptions: { pillName: count } per slot
+// Zone layout: centered horizontally, 3 slots side by side
+// Each zone: ~5% wide, ~10% tall (as fraction 0-1)
+const PATIENTS = {
+  alex: {
+    name: 'Alex',
+    prescription: {
+      morning:   { 'nifedipine': 1, 'gabapentin': 1 },
+      afternoon: { 'advil': 1 },
+      dinner:    { 'amoxi': 2 }
+    }
+  }
+};
+
+// Normalised zone geometry — centered horizontally, stacked side by side
+// Each zone is 5% wide, 10% tall; 3 zones total with 1% gaps
+// Center X = 0.5, so leftmost starts at 0.5 - (3*0.05 + 2*0.01)/2
+const SLOT_NAMES   = ['morning', 'afternoon', 'dinner'];
+const SLOT_COLORS  = ['#7c5cfc', '#00e5a0', '#ffd166'];
+const ZONE_W       = 0.05;   // 5% of canvas width
+const ZONE_H       = 0.10;   // 10% of canvas height
+const ZONE_GAP     = 0.015;  // gap between zones
+const ZONE_Y_MID   = 0.45;   // vertical center (normalized)
+
+function slotZones() {
+  // Returns [{name, color, points, closed}] for the 3 preset slots
+  const totalW = 3 * ZONE_W + 2 * ZONE_GAP;
+  const startX = 0.5 - totalW / 2;
+  const top    = ZONE_Y_MID - ZONE_H / 2;
+  const bottom = ZONE_Y_MID + ZONE_H / 2;
+
+  return SLOT_NAMES.map((name, i) => {
+    const x0 = startX + i * (ZONE_W + ZONE_GAP);
+    const x1 = x0 + ZONE_W;
+    return {
+      id: Date.now() + i,
+      name,
+      color: SLOT_COLORS[i],
+      closed: true,
+      preset: true,
+      points: [
+        { x: x0, y: top    },
+        { x: x1, y: top    },
+        { x: x1, y: bottom },
+        { x: x0, y: bottom }
+      ]
+    };
+  });
+}
+
 // ── State ────────────────────────────────────────────────────
 let stream = null;
 let cameraOn = false;
 let busy = false;
 let configOpen = true;
+let activePatient = null;   // key into PATIENTS
 
 // Zone drawing state
 let zones = [];           // [{id, name, color, points: [{x,y}…], closed}]
@@ -682,8 +1013,9 @@ const cfg = {
   refreshDot();
   if (cfg.apiKey) {
     collapseConfig();
-    setStatus('API key loaded. Start camera and draw zones.', '');
+    setStatus('API key loaded. Select a patient and start the camera.', '');
   }
+  document.getElementById('btnLoadZones').disabled = true;
   // On resize, CSS handles scaling — canvas resolution stays fixed to video native size
 })();
 
@@ -716,6 +1048,125 @@ function saveConfig() {
 
 function refreshDot() {
   document.getElementById('configDot').classList.toggle('ready', !!cfg.apiKey);
+}
+
+// ── Patient / Zone loading ───────────────────────────────────
+function onCustomerChange() {
+  const sel = document.getElementById('customerSelect');
+  document.getElementById('btnLoadZones').disabled = !sel.value;
+  // Clear previous state when switching patients
+  activePatient = null;
+  clearAllZones(true); // silent clear
+  document.getElementById('rxCard').style.display = 'none';
+  document.getElementById('complianceWrap').style.display = 'none';
+}
+
+function loadPatientZones() {
+  const key = document.getElementById('customerSelect').value;
+  if (!key || !PATIENTS[key]) return;
+
+  activePatient = key;
+  const patient = PATIENTS[key];
+
+  // Load 3 preset zones
+  zones = slotZones();
+  renderZoneCards();
+  recomputeZoneCounts();
+
+  // Show prescription
+  const rxCard = document.getElementById('rxCard');
+  document.getElementById('rxPatientName').textContent = patient.name;
+  const rxBody = document.getElementById('rxBody');
+  rxBody.innerHTML = '';
+  for (const [slot, pills] of Object.entries(patient.prescription)) {
+    const pillList = Object.entries(pills)
+      .map(([name, count]) => count > 1 ? `${count}× ${name}` : name)
+      .join(', ');
+    const row = document.createElement('div');
+    row.className = 'rx-row';
+    row.innerHTML = `
+      <span class="rx-slot">${slot.charAt(0).toUpperCase() + slot.slice(1)}</span>
+      <span class="rx-pills">${pillList}</span>
+    `;
+    rxBody.appendChild(row);
+  }
+  rxCard.style.display = 'block';
+  document.getElementById('complianceWrap').style.display = 'block';
+
+  setStatus(`Loaded zones for ${patient.name}. Capture to verify doses.`, 'ok');
+  setHint('3 preset zones loaded — Morning, Afternoon, Dinner', true);
+}
+
+// ── Compliance check ──────────────────────────────────────────
+function checkCompliance() {
+  if (!activePatient) return;
+  const patient = PATIENTS[activePatient];
+  const rx = patient.prescription;
+  const body = document.getElementById('complianceBody');
+  body.innerHTML = '';
+
+  const canvas = document.getElementById('drawCanvas');
+  const cw = canvas.width, ch = canvas.height;
+  let allOk = true;
+
+  for (const zone of zones) {
+    const slotName = zone.name.toLowerCase();
+    const expected = rx[slotName];
+    if (!expected) continue;
+
+    // Count detected pills in this zone
+    const detected = {};
+    for (const p of lastPredictions) {
+      const cls = (p.class || p.class_name || 'unknown').toLowerCase().trim();
+      const nx = p.x / (p.image_width  || cw);
+      const ny = p.y / (p.image_height || ch);
+      if (pointInPolygon(nx, ny, zone.points)) {
+        detected[cls] = (detected[cls] || 0) + 1;
+      }
+    }
+
+    // Compare
+    const issues = [];
+
+    // Check for missing or insufficient pills
+    for (const [pill, count] of Object.entries(expected)) {
+      const got = detected[pill.toLowerCase()] || 0;
+      if (got < count) {
+        const missing = count - got;
+        issues.push(`missing ${missing > 1 ? missing + '× ' : ''}${pill}`);
+      }
+    }
+
+    // Check for extra unexpected pills
+    for (const [pill, count] of Object.entries(detected)) {
+      const expectedCount = expected[pill] || 0;
+      if (count > expectedCount) {
+        const extra = count - expectedCount;
+        issues.push(`${extra} extra ${pill}`);
+      }
+    }
+
+    const result = document.createElement('div');
+    result.className = 'compliance-result ' + (issues.length === 0 ? 'ok' : 'err');
+    const slotLabel = slotName.charAt(0).toUpperCase() + slotName.slice(1);
+
+    if (issues.length === 0) {
+      result.textContent = `✓  ${slotLabel}: All correct`;
+    } else {
+      result.textContent = `✗  ${slotLabel}: Incorrect — ${issues.join(', ')}`;
+      allOk = false;
+    }
+    body.appendChild(result);
+  }
+
+  // Overall summary
+  const summary = document.createElement('div');
+  summary.style.cssText = 'font-size:0.72rem;color:var(--muted);margin-top:4px;padding-top:6px;border-top:1px solid var(--border)';
+  summary.textContent = allOk
+    ? `✓  All doses verified for ${patient.name}`
+    : `⚠  Dose discrepancies found for ${patient.name}`;
+  summary.style.color = allOk ? 'var(--accent)' : 'var(--warn)';
+  body.appendChild(summary);
 }
 
 // ── Camera ───────────────────────────────────────────────────
@@ -1015,12 +1466,12 @@ function deleteZone(id) {
   recomputeZoneCounts();
 }
 
-function clearAllZones() {
+function clearAllZones(silent) {
   zones = [];
   drawingZone = null;
   mousePos = null;
   renderZoneCards();
-  setHint('All zones cleared.', false);
+  if (!silent) setHint('All zones cleared.', false);
 }
 
 // ── Zone result cards ─────────────────────────────────────────
@@ -1038,12 +1489,13 @@ function renderZoneCards() {
     card.className = 'zone-card';
     card.id = `zcard-${zone.id}`;
 
+    const isPreset = !!zone.preset;
     card.innerHTML = `
       <div class="zone-card-head">
         <div class="zone-swatch" style="background:${zone.color};box-shadow:0 0 5px ${zone.color}88"></div>
-        <input class="zone-name-input" value="${zone.name}" onchange="renameZone(${zone.id}, this.value)">
+        <input class="zone-name-input" value="${zone.name}" ${isPreset ? 'readonly style="opacity:0.7;cursor:default"' : ''} onchange="renameZone(${zone.id}, this.value)">
         <span class="zone-pill-count" id="ztotal-${zone.id}">— pills</span>
-        <button class="zone-del" onclick="deleteZone(${zone.id})" title="Delete zone">✕</button>
+        ${isPreset ? '' : `<button class="zone-del" onclick="deleteZone(${zone.id})" title="Delete zone">✕</button>`}
       </div>
       <div class="zone-card-body" id="zbody-${zone.id}">
         <span class="zone-empty-text">Capture to count pills in this zone</span>
@@ -1215,6 +1667,53 @@ function recomputeZoneCounts() {
       });
     }
   }
+
+  // ── Count pills outside all zones ──────────────────────────
+  const unzonedCounts = {};
+  for (const p of lastPredictions) {
+    const cls = (p.class || p.class_name || 'unknown').trim();
+    const nx = p.x / (p.image_width  || cw);
+    const ny = p.y / (p.image_height || ch);
+    const inAnyZone = zones.some(z => pointInPolygon(nx, ny, z.points));
+    if (!inAnyZone) {
+      unzonedCounts[cls] = (unzonedCounts[cls] || 0) + 1;
+    }
+  }
+
+  const unzonedWrap  = document.getElementById('unzonedWrap');
+  const unzonedBadge = document.getElementById('unzonedBadge');
+  const unzonedBody  = document.getElementById('unzonedBody');
+
+  if (unzonedWrap) {
+    const unzonedTotal = Object.values(unzonedCounts).reduce((a, b) => a + b, 0);
+    unzonedBadge.textContent = unzonedTotal;
+    unzonedWrap.style.display = zones.length > 0 ? 'block' : 'none';
+    unzonedBody.innerHTML = '';
+
+    if (unzonedTotal === 0) {
+      unzonedBody.innerHTML = '<div class="counts-ph">No pills detected outside zones</div>';
+    } else {
+      const entries = Object.entries(unzonedCounts).sort((a, b) => b[1] - a[1]);
+      const max = entries[0][1];
+      entries.forEach(([cls, cnt], i) => {
+        const color = PILL_COLORS[i % PILL_COLORS.length];
+        const row = document.createElement('div');
+        row.className = 'pill-row';
+        row.innerHTML = `
+          <div class="pill-dot" style="background:${color};box-shadow:0 0 5px ${color}88"></div>
+          <div class="pill-name" title="${cls}">${cls}</div>
+          <div class="pill-bar-bg">
+            <div class="pill-bar" style="width:${Math.round((cnt/max)*100)}%;background:${color}"></div>
+          </div>
+          <div class="pill-count">${cnt}</div>
+        `;
+        unzonedBody.appendChild(row);
+      });
+    }
+  }
+
+  // Run compliance check against prescription
+  checkCompliance();
 }
 
 // Ray-casting point-in-polygon (normalised coords)
