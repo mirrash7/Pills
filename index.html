@@ -745,12 +745,25 @@ function renderResults(data, fallbackCanvas) {
   }
 
   // 2. Predictions — dig into common result shapes
-  const preds =
-    out?.predictions?.predictions ||
-    out?.pill_segmentation?.predictions ||
-    out?.detections?.predictions ||
-    (Array.isArray(out?.predictions) ? out.predictions : null) ||
-    [];
+  // Log full output to help debug response shape
+  console.log('[PillScan] API out:', JSON.stringify(out, null, 2));
+
+  function extractPreds(obj) {
+    if (!obj) return null;
+    if (Array.isArray(obj)) return obj;
+    if (Array.isArray(obj.predictions)) return obj.predictions;
+    // Recurse one level into any object values
+    for (const val of Object.values(obj)) {
+      if (val && typeof val === 'object') {
+        const found = extractPreds(val);
+        if (found && found.length >= 0) return found;
+      }
+    }
+    return null;
+  }
+
+  const preds = extractPreds(out) || [];
+  console.log('[PillScan] preds found:', preds.length);
 
   // 3. Count by class
   const counts = {};
@@ -802,13 +815,18 @@ function renderCounts(counts, confByClass, total) {
     body.appendChild(row);
   });
 
-  // Confidence footer
+  // Confidence footer — always update, even if confidence data is absent
   const allConf = Object.values(confByClass).flat();
+  foot.classList.remove('show');
   if (allConf.length) {
     const avg = Math.round(allConf.reduce((a,b)=>a+b,0) / allConf.length * 100);
     foot.textContent = `Avg confidence: ${avg}% · ${total} instance${total!==1?'s':''} detected`;
-    foot.classList.add('show');
+  } else {
+    foot.textContent = `${total} instance${total!==1?'s':''} detected`;
   }
+  // Force reflow so classList change is noticed before re-adding
+  void foot.offsetWidth;
+  foot.classList.add('show');
 }
 
 // ── Helpers ──────────────────────────────────────────────────
